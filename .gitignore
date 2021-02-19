@@ -2,3 +2,5 @@
 
 .gradle
 .idea
+#민감정보 안올라가게
+application-oauth.properties

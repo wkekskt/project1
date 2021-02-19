@@ -23,7 +23,7 @@ apply plugin: 'io.spring.dependency-management'
 //    id 'java'
 //}
 
-group 'org.example.project1'
+group 'com.project1'
 version '1.0-SNAPSHOT'
 
 //의존성을 어떤 원격 저장소에 받을지 정함
@@ -34,10 +34,18 @@ repositories {
 //의존성 선언
 dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.0'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.6.0'
     //특정 버전 명시안하면 맨위에 작성한 ${springBootVersion}를 따라감
     compile('org.springframework.boot:spring-boot-starter-web')
     testCompile('org.springframework.boot:spring-boot-starter-test')
+    //롬복 추가(getter, setter 생성자 등 어노테이션 자동생성)
+    compile('org.projectlombok:lombok')
+    //스프링부트용 JPA
+    compile('org.springframework.boot:spring-boot-starter-data-jpa')
+    //인메모리 관계형 DB. 메모리에서 실행됨
+    compile('com.h2database:h2')
+    //머스테치 스타터
+    compile('org.springframework.boot:spring-boot-starter-mustache')
 }
 
 test {
